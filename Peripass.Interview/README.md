@@ -1,4 +1,4 @@
-# Peripass.Interview - 6-Letter Word Combinations
+# Peripass.Interview - 6 Letter Word Combinations
 
 Finds all ways to combine shorter words from a list into 6 letter words that also appear in the list.
 
