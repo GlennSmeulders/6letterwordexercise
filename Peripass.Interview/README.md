@@ -1,11 +1,11 @@
-# Peripass.Interview — 6-Letter Word Combinations
+# Peripass.Interview - 6-Letter Word Combinations
 
-Finds all ways to combine shorter words from a list into 6-letter words that also appear in the list.
+Finds all ways to combine shorter words from a list into 6 letter words that also appear in the list.
 
 ## How to run
 
 ```bash
-dotnet run --project .\Peripass.Interview\
+dotnet run --project .\Peripass.Interview
 ```
 
 This reads `input.txt` from the solution folder by default.
@@ -15,7 +15,7 @@ This reads `input.txt` from the solution folder by default.
 Pass a different file as a CLI argument:
 
 ```bash
-dotnet run --project .\Peripass.Interview\ -- ..\path\to\other.txt
+dotnet run --project .\Peripass.Interview -- ..\path\to\other.txt
 ```
 
 Run the unit tests:
