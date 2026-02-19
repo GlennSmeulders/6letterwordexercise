@@ -47,6 +47,39 @@ public class WordCombinationFinderTests {
   }
 
   [Fact]
+  public void FindCombinations_FindsMultiWordCombos() {
+    var words = new HashSet<string> { "foobar", "fo", "o", "bar", "foo" };
+    var finder = new WordCombinationFinder(words);
+
+    var results = finder.FindCombinations().Select(r => r.ToString()).ToList();
+
+    Assert.Contains("fo+o+bar=foobar", results);
+    Assert.Contains("foo+bar=foobar", results);
+  }
+
+  [Fact]
+  public void FindCombinations_ExcludesSingleWordDecompositions() {
+    var words = new HashSet<string> { "foobar" };
+    var finder = new WordCombinationFinder(words);
+
+    var results = finder.FindCombinations().ToList();
+
+    Assert.Empty(results);
+  }
+
+  [Fact]
+  public void FindCombinations_RespectsTargetLength() {
+    var words = new HashSet<string> { "a", "b", "c", "ab", "bc", "abc" };
+    var finder = new WordCombinationFinder(words, targetLength: 3);
+
+    var results = finder.FindCombinations().Select(r => r.ToString()).ToList();
+
+    Assert.Contains("a+b+c=abc", results);
+    Assert.Contains("ab+c=abc", results);
+    Assert.Contains("a+bc=abc", results);
+  }
+
+  [Fact]
   public void WordCombination_ToStringFormatsCorrectly() {
     var combo = new WordCombination(["a", "bc", "def"], "abcdef");
     Assert.Equal("a+bc+def=abcdef", combo.ToString());

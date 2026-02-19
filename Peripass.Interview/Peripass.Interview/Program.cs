@@ -6,5 +6,5 @@ var words = loader.Load();
 
 var finder = new WordCombinationFinder(words);
 
-foreach (var combination in finder.FindTwoWordCombinations())
+foreach (var combination in finder.FindCombinations())
   Console.WriteLine(combination);
